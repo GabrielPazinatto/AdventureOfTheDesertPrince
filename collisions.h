@@ -3,4 +3,7 @@
 #include "obstacle.h"
 #include "player.h"
 
-bool playerObstacleCollision();
+bool playerObstacleCollision();//detec
+
+bool playerObstacleCollisionX();
+bool playerObstacleCollisionY();

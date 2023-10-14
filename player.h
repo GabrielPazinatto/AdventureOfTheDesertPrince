@@ -12,7 +12,6 @@ private:
 
 public:
 
-	static Player players[2];
 
 	Vector2 getSpeed();             //returns player's speed as Vector2
 	Vector2 getPos();               //returns player's pos as Vector2
@@ -29,6 +28,6 @@ public:
 
 };
 
-static Player player;
-
 void handlePlayer(); //executes every player-related function
+
+extern Player PLAYER;

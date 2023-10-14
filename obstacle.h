@@ -12,8 +12,15 @@ private:
 public:
 
 	Rectangle getRec();
+	Vector2 getPos();
+	Vector2 getSizeVec();
 
+	void setPos(Vector2 newPos);
+	void draw();
 
 };
 
-static std::vector<Obstacle> obstacles;
+void updateObstacleVector();
+void handleObstacles();
+
+extern std::vector<Obstacle> OBSTACLES;

@@ -2,6 +2,8 @@
 #include <raylib.h>
 
 #include "player.h"
+#include "collisions.h"
+#include "level.h"
 
 using namespace std;
 
@@ -12,12 +14,18 @@ int main(void) {
 
 	InitWindow(screenWidth, screenHeight, "Adventure of the Desert Prince");
 
+	readLevelFile();
+	updateObstacleVector();
+
 	while (!WindowShouldClose()) {
 
 		BeginDrawing();
 		ClearBackground(RAYWHITE);
 
 		handlePlayer();
+		handleObstacles();
+
+		DrawRectangleRec(PLAYER.getFutureRec(), YELLOW);
 
 		EndDrawing();
 	}

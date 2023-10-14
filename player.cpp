@@ -73,25 +73,20 @@ void Player::updateFuturePos() {
 	if (IsKeyDown(KEY_D)) Player::futurePos.x += Player::speed.x;
 	else Player::futurePos.x = Player::pos.x;
 
-	std::cout << futurePos.x << " " << futurePos.y << std::endl;
-
 }
 
 void Player::move() {
 
-	if (not playerObstacleCollision()) {
+	//changes y position
+	if (not willLeaveScreenY() and not playerObstacleCollision()) {
+		if (IsKeyDown(KEY_W)) Player::pos.y -= Player::speed.y;
+		if (IsKeyDown(KEY_S)) Player::pos.y += Player::speed.y;
+	}
 
-		//changes y position
-		if (not willLeaveScreenY()) {
-			if (IsKeyDown(KEY_W)) Player::pos.y -= Player::speed.y;
-			if (IsKeyDown(KEY_S)) Player::pos.y += Player::speed.y;
-		}
-
-		//changes x position
-		if (not willLeaveScreenX()) {
-			if (IsKeyDown(KEY_A)) Player::pos.x -= Player::speed.x;
-			if (IsKeyDown(KEY_D)) Player::pos.x += Player::speed.x;
-		}
+	//changes x position
+	if (not willLeaveScreenX() and not playerObstacleCollision()) {
+		if (IsKeyDown(KEY_A)) Player::pos.x -= Player::speed.x;
+		if (IsKeyDown(KEY_D)) Player::pos.x += Player::speed.x;
 	}
 }
 
@@ -103,8 +98,10 @@ void Player::draw() {
 
 void handlePlayer() {
 
-	player.updateFuturePos();
-	player.move();
-	player.draw();
+	PLAYER.updateFuturePos();
+	PLAYER.move();
+	PLAYER.draw();
 	
 }
+
+Player PLAYER;
