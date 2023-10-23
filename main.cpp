@@ -4,6 +4,7 @@
 #include "player.h"
 #include "collisions.h"
 #include "level.h"
+#include "monster.h"
 
 using namespace std;
 
@@ -13,9 +14,11 @@ const int screenHeight = 900;
 int main(void) {
 
 	InitWindow(screenWidth, screenHeight, "Adventure of the Desert Prince");
+	SetTargetFPS(60);
 
 	readLevelFile();
 	updateObstacleVector();
+	updateMonsterVector();
 
 	while (!WindowShouldClose()) {
 
@@ -24,8 +27,10 @@ int main(void) {
 
 		handlePlayer();
 		handleObstacles();
+		handleMonsters();
+		handleBullets();
 
-		DrawRectangleRec(PLAYER.getFutureRec(), YELLOW);
+		//DrawRectangleRec(PLAYER.getFutureRec(), YELLOW);
 
 		EndDrawing();
 	}

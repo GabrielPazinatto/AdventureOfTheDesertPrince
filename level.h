@@ -1,6 +1,6 @@
 #pragma once
 
-#define ROWS 16
+#define ROWS 18
 #define COLLUMNS 24
 
 void readLevelFile();

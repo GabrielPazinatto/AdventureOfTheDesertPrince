@@ -9,7 +9,11 @@ private:
 	Vector2 pos = { -50, -50 };
 	Vector2 size = { 40, 40 };
 
+
+
 public:
+
+	bool isWall = false;
 
 	Rectangle getRec();
 	Vector2 getPos();
